@@ -6,12 +6,10 @@ using System.Threading.Tasks;
 
 namespace Endeudator.Models
 {
-    internal class Debt
+    internal class CurrentRate
     {
-        public int Id { get; set; }
+        public int id {  get; set; }
+        public decimal Rate { get; set; }
         public DateTime Date { get; set; }
-        public decimal TotalSEK { get; set; }
-        public Interest? Interest { get; set; }
-        public Movement? Movement { get; set; }
     }
 }

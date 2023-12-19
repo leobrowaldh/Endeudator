@@ -9,8 +9,10 @@ namespace Endeudator.Models
     internal class Interest
     {
         public int Id { get; set; }
-        public DateTime Date { get; set; } = DateTime.Now;
-        public decimal Rate { get; set; }
+        public int DebtId { get; set; }
+        public DateTime Date { get; set; }
+        public decimal Amount { get; set; }
+        public decimal InterestRate { get; set; }
         public Debt Debt { get; set; }
     }
 }

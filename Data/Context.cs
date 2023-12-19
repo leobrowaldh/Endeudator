@@ -8,6 +8,7 @@ namespace Endeudator.Data
         public DbSet<Debt> Debts { get; set; }
         public DbSet<Movement> Movements { get; set; }
         public DbSet<Interest> Interests { get; set; }
+        public DbSet<CurrentRate> CurrentRates { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
