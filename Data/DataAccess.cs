@@ -42,7 +42,7 @@ namespace Endeudator.Data
 
         public void UpdateInterests(DateTime date)
         {
-            bool thereIsAnotherInterestToApply = false;
+            bool thereIsAnotherInterestToApply = true;
             do
             {
                 using (Context context = new Context())
@@ -60,12 +60,12 @@ namespace Endeudator.Data
                     DateTime lastInterestDate = lastInterestEntry.Date;
                     DateTime nextInterestDate = GetNextInterestDate(lastInterestDate);
 
-                    if (nextInterestDate > DateTime.Now)
+                    if (nextInterestDate > date)
                     {
                         thereIsAnotherInterestToApply = false;
-                        break;
+                        break; //this means we are up to date with the interests, nothing else to apply
                     }
-                    else if (nextInterestDate <= DateTime.Now)
+                    else if (nextInterestDate <= date)
                     {
                         //Apply the interest
                         decimal interestRate = FetchCorrespondingRate(nextInterestDate);

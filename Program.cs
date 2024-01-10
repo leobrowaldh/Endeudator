@@ -8,7 +8,6 @@ namespace Endeudator
     {
         static void Main(string[] args)
         {
-
             DataAccess dataAccess = new DataAccess();
             RunMenu(dataAccess);
         }

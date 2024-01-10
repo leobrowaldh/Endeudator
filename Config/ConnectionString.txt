@@ -1,0 +1,6 @@
+Server=localhost; 
+Database=Endeudator; 
+Trusted_Connection=True; 
+Trust Server Certificate=Yes; 
+User Id=Endeudator; 
+password=Endeudator
