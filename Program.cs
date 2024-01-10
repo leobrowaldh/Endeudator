@@ -50,7 +50,7 @@ namespace Endeudator
                         }
                     case 5:
                         {
-
+                            StartNewRegister(dataAccess, cc);
                             break;
                         }
                 }
@@ -110,6 +110,32 @@ namespace Endeudator
                 Console.WriteLine("\n--Interest updated--\n");
             }
             else { Console.WriteLine("wrong input"); }
+        }
+
+        private static void StartNewRegister(DataAccess dataAccess, ConsoleCompanionHelper cc)
+        {
+            decimal amount = (decimal)cc.AskForDouble("How much is the initial debt?", "wrong input");
+            decimal interestRate = (decimal)cc.AskForDouble("What is the interest rate you want to set?", "wrong input");
+            string stringDate = cc.AskForString("When did the debt start? yyyy-mm-dd HH:mm , \n type \"NOW\" if paying now.");
+            if (stringDate.ToUpper() == "NOW")
+            {
+                DateTime date = DateTime.Now;
+                Initialize(dataAccess, amount, interestRate, date);
+            }
+            else if (DateTime.TryParse(stringDate, out DateTime parsedDate))
+            {
+                Initialize(dataAccess, amount, interestRate, parsedDate);
+            }
+            else { Console.WriteLine("wrong input"); }
+            
+        }
+
+        private static void Initialize(DataAccess dataAccess, decimal amount, decimal interestRate, DateTime date)
+        {
+            dataAccess.NewDebt(amount, date);
+            dataAccess.ChangeInterestRate(interestRate, date);
+            //There need to be a starting interest entry for InterestUpdate to work properly in the future.
+            dataAccess.AddInterest(0, date, interestRate);
         }
     }
 

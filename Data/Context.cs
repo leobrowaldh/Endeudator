@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Endeudator.Models;
-using Microsoft.EntityFrameworkCore.Design;
 
 namespace Endeudator.Data
 {

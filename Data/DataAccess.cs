@@ -119,6 +119,17 @@ namespace Endeudator.Data
                 context.SaveChanges();
             }
         }
+
+        /// <summary>
+        /// Create the initial state of the register
+        /// </summary>
+        public void AddInitialState(DateTime date, decimal initialDebt, decimal interestRate)
+        {
+            using (Context context = new Context())
+            {
+
+            }
+        }
         
         public decimal FetchCorrespondingRate(DateTime date)
         {
@@ -165,5 +176,7 @@ namespace Endeudator.Data
                 context.SaveChanges();
             }
         }
+
+        
     }
 }
